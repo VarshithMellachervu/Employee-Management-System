@@ -1,0 +1,187 @@
+<html>
+<head>
+	<title>Registering an employee</title>
+	<script>
+		function validate() 
+		{
+    var empname = document.getElementById("n1").value;
+    var empid = document.getElementById("t1").value;
+    var pass = document.getElementById("p1").value;
+    var email = document.getElementById("e1").value;
+    var mobile = document.getElementById("m1").value;
+    var male = document.getElementById("r1").checked;
+    var female = document.getElementById("r2").checked;
+    var others = document.getElementById("r3").checked;
+    var des = document.getElementById("j1").value;
+    var dept = document.getElementById("d1").value;
+    var doj = document.getElementById("doj").value;
+    var empcity = document.getElementById("c1").value;
+    var empsal = document.getElementById("s1").value;
+
+    if (empname === "" || !(isNaN(empname)))
+	{
+        alert("Employee Name should not be empty and should contain only alphabets");
+        return false;
+    }
+    if (empid === "" || empid.length < 6 || isNaN(empid)) {
+        alert("Employee ID should not be empty, should have at least 6 digits, and should contain only digits");
+        return false;
+    }
+    if (pass.length < 6) 
+	{
+        alert("Password should have a minimum of 6 characters");
+        return false;
+    }
+    if (email === "" || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+        alert("Please enter a valid email address");
+        return false;
+    }
+    if (mobile === "" || isNaN(mobile) || mobile.length !== 10) 
+	{
+        alert("Mobile number should be 10 digits and contain only numbers");
+        return false;
+    }
+    if (!(male || female || others)) {
+        alert("Select one option for Gender");
+        return false;
+    }
+    if (des === "" || (!isNaN(des))) {
+        alert("Employee Designation should not be empty and should contain only alphabets");
+        return false;
+    }
+    if (dept === "" || (!isNaN(dept))){
+        alert("Department name should not be empty and should contain only alphabets");
+        return false;
+    }
+    if (doj === "") {
+        alert("Fill the date of join of Employee");
+        return false;
+    }
+	else 
+	{
+        var currentDate = new Date();
+        var selectedDate = new Date(doj);
+        if (selectedDate > currentDate) {
+            alert("Date of Join should not be in the future");
+            return false;
+        }
+    }
+    if (empcity === "" || (!isNaN(empcity))) {
+        alert("Employee City should not be empty and should contain only alphabets");
+        return false;
+    }
+    if (empsal === "" || isNaN(empsal)) 
+	{
+        alert("Employee Salary should not be empty and should contain only digits");
+        return false;
+    }
+    return true;
+}
+</script>
+	<style> 
+		body
+		{
+			font-family: Arial, sans-serif;
+    		margin: 0;
+    		padding: 0;
+			background-color:teal;
+		}
+		*
+		{
+			box-sizing:border-box;
+		}
+		.container
+		{
+			border-radius: 25px;
+			margin:auto;
+			width:35%;
+			padding:25px;
+			background-color:white;
+			box-shadow:20px 20px 20px 0px rgba(0,0,0,0.7);
+		}
+		label 
+		{
+			  display: block;
+			  width: 130px;
+		}
+  	.btn 
+	{
+    	display: inline-block;
+    	padding: 8px 16px;
+    	background-color: #fffcd7da;
+    	color: #0000009b;
+    	text-decoration: none;
+    	border-radius: 10px;
+    	margin-right: 10px;
+  	}
+</style>
+</head>
+<body><center><font size="5">
+		<header>
+			<br><br>
+			<b><a href="Admin_home.html" class="btn">Go to Admin Home Page</a></b><br><br>
+		  </header>
+	<form name="f1" action="servlet2" method="post" onsubmit="return validate()">
+			<div class="container">
+					<h2 style="color:navy;text-align:center;">Register Employee</h2>
+					<hr/>
+					<table align="center" width="26%" cellspacing="10">
+						<tr>
+								<td><label>Employee Name :</label></td>
+								<td><input type="text" id="n1" name="empname" size="20"><br></td>
+						</tr>
+						<tr>
+								<td><label>Employee id :</label></td> 
+								<td><input type="text" id="t1" name="empid"> <br></td>
+						</tr>
+						<tr>
+								<td><label>Password :</label></td>
+								<td><input type="password" id="p1" name="emppass"> <br></td>
+						</tr>
+						<tr>
+								<td><label> Email :</label></td>
+								<td><input type="email" id="e1" name="empemail"> <br></td>
+						</tr>
+						<tr>
+								<td><label> Mobile Number :</label></td>
+								<td><input type="text" id="m1"  name="empmobile" maxlength="10"> <br></td>
+						</tr>
+						<tr>
+								<td><label>Gender :</label></td>
+								<td>
+									<input type="radio" name="gender" value="Male" id="r1">Male<br><br>
+									<input type="radio" name="gender" value="Female" id="r2">Female<br><br>
+									<input type="radio" name="gender" value="Others" id="r3">Others<br><br>
+								</td>
+						</tr>
+						<tr>
+								<td><label>Designation:</label></td>
+								<td><input type="text" id="j1" name="empdes"> <br></td>
+						</tr>
+						<tr>
+								<td><label>Department :</label></td>
+								<td><input type="text" id="d1" name="empdepart"> <br></td>
+						</tr>
+						<tr>
+								<td><label>Date of Join:</label></td>
+								<td><input type="date" id="doj" name="empdoj"> <br></td>
+						</tr>
+						<tr>
+							<td> <label>Employee City :</label></td>
+							<td><input type="text" id="c1" name="empcity"></td>
+						</tr>
+						<tr>
+							<td> <label>Employee Salary :</label></td>
+							<td><input type="text" id="s1" name="empsalary"></td>
+						</tr>
+					</table>
+					<hr/>
+					<br>
+						<input type="submit" value="Register" name="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="reset" value="Cancel">
+					<br><br><br>
+				</div>
+		</form>
+</body>
+</html>
+

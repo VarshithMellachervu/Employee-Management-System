@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: rgb(239, 248, 253);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            border-radius: 25px;
+            margin: auto;
+            width: 35%;
+            padding: 25px;
+            background-color: white;
+            box-shadow: 20px 20px 20px 0px rgba(0, 0, 0, 0.7);
+        }
+
+        label {
+            display: inline-block;
+            width: 110px;
+        }
+    </style>
+</head>
+<body><center>
+            <form action="employeelogin" method="post">
+            <font size="5">
+                <br><br><br><br><br>
+                <div class="container">
+                    <h2 style="color: hsl(277, 100%, 50%)">Employee Login</h2>
+                </font>
+                    <hr />
+                <font size="4">
+                    <table align="center" width="30%" cellspacing="10">
+                        <tr>
+                            <td><label>Name :</label></td>
+                            <td><input type="text" name="empname"><br></td>
+                        </tr>
+                        <tr>
+                            <td><label>Password :</label></td>
+                            <td><input type="password" name="password"><br></td>
+                        </tr>
+                        <tr>
+                            <td><label>Employee ID :</label></td>
+                            <td><input type="text" name="empid"><br></td>
+                        </tr>
+                    </table>
+                </font>
+                    <hr /><br>
+                    <input type="submit" value="Login" name="Login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="reset" value="Cancel">
+                </div>
+            </form>
+    </center>
+</body>
+</html>

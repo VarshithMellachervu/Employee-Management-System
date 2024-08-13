@@ -1,0 +1,34 @@
+<web-app>
+	<servlet>
+		<servlet-name>AS</servlet-name>
+		<servlet-class>AdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AS</servlet-name>
+		<url-pattern>/servlet1</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>RS</servlet-name>
+		<servlet-class>RegistrationServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RS</servlet-name>
+		<url-pattern>/servlet2</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>EL</servlet-name>
+		<servlet-class>EmployeeLogin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EL</servlet-name>
+		<url-pattern>/employeelogin</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ED</servlet-name>
+		<servlet-class>EmployeeDelete</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ED</servlet-name>
+		<url-pattern>/employeedelete</url-pattern>
+	</servlet-mapping>
+</web-app>
